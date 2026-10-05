@@ -40,3 +40,6 @@ export async function apiRequest<T>(path: string, init: RequestInit = {}): Promi
   return response.json() as Promise<T>;
 }
 const API_URL = import.meta.env.VITE_API_URL;
+axios.create({
+  baseURL: API_URL
+});
