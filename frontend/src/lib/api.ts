@@ -39,4 +39,4 @@ export async function apiRequest<T>(path: string, init: RequestInit = {}): Promi
 
   return response.json() as Promise<T>;
 }
-fetch("https://cab-booking-management-9em8.onrender.com/api/cabs")
+const API_URL = import.meta.env.VITE_API_URL;
