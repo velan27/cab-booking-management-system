@@ -1,4 +1,5 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+const API_URL =
+  import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
 
 export function getToken() {
   return localStorage.getItem('accessToken');
@@ -12,13 +13,17 @@ export function clearToken() {
   localStorage.removeItem('accessToken');
 }
 
-export async function apiRequest<T>(path: string, init: RequestInit = {}): Promise<T> {
+export async function apiRequest<T>(
+  path: string,
+  init: RequestInit = {}
+): Promise<T> {
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     ...(init.headers as Record<string, string> | undefined)
   };
 
   const token = getToken();
+
   if (token) {
     headers.Authorization = `Bearer ${token}`;
   }
@@ -39,8 +44,3 @@ export async function apiRequest<T>(path: string, init: RequestInit = {}): Promi
 
   return response.json() as Promise<T>;
 }
-const API_URL = import.meta.env.VITE_API_URL;
-axios.create({
-  baseURL: API_URL
-});
-const API_URL = import.meta.env.VITE_API_URL;
