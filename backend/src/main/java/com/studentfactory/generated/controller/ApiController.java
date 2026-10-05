@@ -199,10 +199,7 @@ public class ApiController {
     auditLogs.save(log);
   }
 }
-@GetMapping("/test")
-public String test() {
-    return "Backend working";
-}
+
 @GetMapping("/")
 public String home() {
     return "Cab Booking Backend is running successfully!";
