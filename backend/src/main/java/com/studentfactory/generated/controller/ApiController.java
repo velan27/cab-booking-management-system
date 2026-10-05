@@ -187,10 +187,8 @@ public class ApiController {
       )
     );
   }
-@GetMapping("/")
-public String home() {
-    return "Cab Booking Backend is running successfully!";
-}
+  
+
   private void writeAudit(String action, String entity, String entityId, Object payload) throws JsonProcessingException {
     AuditLog log = new AuditLog();
     log.actor = "admin@example.com";
@@ -200,4 +198,12 @@ public String home() {
     log.payload = mapper.writeValueAsString(payload);
     auditLogs.save(log);
   }
+}
+@GetMapping("/test")
+public String test() {
+    return "Backend working";
+}
+@GetMapping("/")
+public String home() {
+    return "Cab Booking Backend is running successfully!";
 }
